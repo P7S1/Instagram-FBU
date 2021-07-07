@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EditPostViewController : UIViewController
-
+@property (nonatomic, strong) UIImage* image;
 @end
 
 NS_ASSUME_NONNULL_END

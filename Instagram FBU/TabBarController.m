@@ -34,6 +34,19 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    if (image == nil) { return; }
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    EditPostViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"EditPostViewController"];
+    vc.image = image;
+    UINavigationController* navController =[[UINavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    
     
 }
 

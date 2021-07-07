@@ -16,7 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIImageView* imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@
+                              "instagram"]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.navigationItem.titleView = imageView;
+    
 }
 
 - (IBAction)logoutButtonPressed:(id)sender {
