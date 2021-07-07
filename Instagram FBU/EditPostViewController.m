@@ -48,8 +48,10 @@
     self.imageViewHeightAnchor.constant = heightAnchorConstant;
 }
 
+
 - (void) postButtonPressed{
-    [Post postUserImage:self.image withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    CGFloat aspectRatio = [MediaManager getImageAspectRatio:self.image.size];
+    [Post postUserImage:self.image withCaption:self.textView.text withAspectRatio: aspectRatio withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [self dismissViewControllerAnimated: YES completion:nil];
         if (succeeded){
             NSLog(@"Post posted successfully");

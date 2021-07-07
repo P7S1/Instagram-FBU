@@ -18,12 +18,13 @@
 @dynamic image;
 @dynamic likeCount;
 @dynamic commentCount;
+@dynamic aspectRatio;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
 }
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withAspectRatio:(CGFloat)aspectRatio withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
@@ -32,6 +33,7 @@
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
     newPost.creationDate = [[NSDate alloc]init];
+    newPost.aspectRatio = aspectRatio;
     
     [newPost saveInBackgroundWithBlock: completion];
 }
@@ -55,7 +57,7 @@
 + (void) getAllPosts: (getPostsBlock _Nullable)completion;{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     query.limit = 20;
-
+    [query includeKey:@"author"];
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         completion(posts,error);
