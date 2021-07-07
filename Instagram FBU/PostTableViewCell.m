@@ -22,7 +22,6 @@
 
 -(void)setUpFromPost: (Post*)post{
     self.captionLabel.text = post.caption;
-    //self.usernameLabel.text = post.author.;
     NSURL* url = [[NSURL alloc]initWithString:post.image.url];
     if (url != nil){
         [self.postImageView sd_setImageWithURL:url];

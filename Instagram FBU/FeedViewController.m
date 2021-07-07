@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSArray<Post*>* posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl* refreshControl;
 
 @end
 
@@ -29,7 +30,15 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    [self configureRefreshControl];
+    
     [self getPosts];
+}
+
+-(void) configureRefreshControl{
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.refreshControl addTarget:self action:@selector(getPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 }
 
 -(void) getPosts{

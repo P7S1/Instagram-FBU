@@ -35,7 +35,6 @@
 
 - (void) setUpNavigationController{
     self.navigationItem.title = @"New Post";
-    
     UIBarButtonItem* postButton = [[UIBarButtonItem alloc]initWithTitle:@"Post" style:UIBarButtonItemStyleDone target:self action:@selector(postButtonPressed)];
     self.navigationItem.rightBarButtonItem = postButton;
     
