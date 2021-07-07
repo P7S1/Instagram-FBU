@@ -9,9 +9,10 @@
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import "Post.h"
-@interface FeedViewController ()
+#import "PostTableViewCell.h"
+@interface FeedViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray<Post*>* posts;
+@property (nonatomic, strong) NSArray<Post*>* posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -25,6 +26,25 @@
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.titleView = imageView;
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    [self getPosts];
+}
+
+-(void) getPosts{
+    NSLog(@"Getting posts...");
+    [Post getAllPosts:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (error == nil){
+            NSLog(@"Getting posts was successful");
+            self.posts = posts;;
+            [self.tableView reloadData];
+        }else{
+            NSLog(@"Getting Posts Failed");
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        
+    }];
 }
 
 - (IBAction)logoutButtonPressed:(id)sender {
@@ -37,4 +57,19 @@
     }];
 }
 
+//MARK:- UITableViewDeleagte + Datasource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.posts.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostTableViewCell"];
+    [cell setUpFromPost:self.posts[indexPath.row]];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewAutomaticDimension;
+}
 @end

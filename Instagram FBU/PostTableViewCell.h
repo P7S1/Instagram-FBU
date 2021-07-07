@@ -6,16 +6,19 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Post.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *postImageViewHeightAnchor;
+
+-(void)setUpFromPost: (Post*)post;
 
 @end
 

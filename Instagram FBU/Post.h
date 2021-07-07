@@ -25,7 +25,7 @@
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
-typedef void(^getPostsBlock)(NSArray<Post*>* _Nullable youtubeTrailerId, NSError* _Nullable error);
+typedef void(^getPostsBlock)(NSArray<Post*>* _Nullable posts, NSError* _Nullable error);
 
 + (void) getAllPosts: (getPostsBlock _Nullable)completion;
 
