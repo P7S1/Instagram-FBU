@@ -26,6 +26,7 @@
 		DFBD85BA269609B0009FC23A /* EditPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD85B9269609B0009FC23A /* EditPostViewController.m */; };
 		DFBD85BC26960F53009FC23A /* MediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD85BB26960F53009FC23A /* MediaManager.m */; };
 		DFBD85C0269611FA009FC23A /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD85BF269611FA009FC23A /* Post.m */; };
+		DFBD85C32696551E009FC23A /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD85C22696551E009FC23A /* PostTableViewCell.m */; };
 		E3B9FF98A39CE048A3218845 /* Pods_Instagram_FBUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3381BF7803B5C16A042359A1 /* Pods_Instagram_FBUTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		DFBD85BD26960F7B009FC23A /* MediaManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaManager.h; sourceTree = "<group>"; };
 		DFBD85BE269611EE009FC23A /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		DFBD85BF269611FA009FC23A /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		DFBD85C12696551E009FC23A /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		DFBD85C22696551E009FC23A /* PostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				DFBD85BB26960F53009FC23A /* MediaManager.m */,
 				DFBD85BE269611EE009FC23A /* Post.h */,
 				DFBD85BF269611FA009FC23A /* Post.m */,
+				DFBD85C12696551E009FC23A /* PostTableViewCell.h */,
+				DFBD85C22696551E009FC23A /* PostTableViewCell.m */,
 			);
 			path = "Instagram FBU";
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				DFBD85BA269609B0009FC23A /* EditPostViewController.m in Sources */,
 				DF98F4D72694E7FF0075784F /* AppDelegate.m in Sources */,
 				DFBD85B126960012009FC23A /* SettingsViewController.m in Sources */,
+				DFBD85C32696551E009FC23A /* PostTableViewCell.m in Sources */,
 				DFBD85B426960035009FC23A /* ProfileViewController.m in Sources */,
 				DFBD85C0269611FA009FC23A /* Post.m in Sources */,
 				DF98F4E82694E8000075784F /* main.m in Sources */,

@@ -31,6 +31,7 @@
     newPost.caption = caption;
     newPost.likeCount = @(0);
     newPost.commentCount = @(0);
+    newPost.creationDate = [[NSDate alloc]init];
     
     [newPost saveInBackgroundWithBlock: completion];
 }
@@ -50,5 +51,18 @@
     
     return [PFFileObject fileObjectWithName:@"image.jpg" data:imageData];
 }
+
++ (void) getAllPosts: (getPostsBlock _Nullable)completion;{
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    query.limit = 20;
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        completion(posts,error);
+    }];
+}
+
+
+
 
 @end

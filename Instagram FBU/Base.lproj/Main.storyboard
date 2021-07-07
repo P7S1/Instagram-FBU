@@ -162,7 +162,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="500" id="3Gc-ca-EQ6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostTableViewCell" rowHeight="500" id="3Gc-ca-EQ6" customClass="PostTableViewCell">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Gc-ca-EQ6" id="krq-10-f4F">
@@ -253,6 +253,14 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="xhM-WR-BGE" id="B5h-g7-Uqy"/>
+                                            <outlet property="dateLabel" destination="04G-1p-ggd" id="uqP-vu-SB2"/>
+                                            <outlet property="postImageView" destination="Jok-fQ-9zY" id="vbR-AZ-kHs"/>
+                                            <outlet property="postImageViewHeightAnchor" destination="hl4-t4-gML" id="2mV-jU-LYW"/>
+                                            <outlet property="profileImageView" destination="uBk-Dh-psB" id="xFU-vk-Zfw"/>
+                                            <outlet property="usernameLabel" destination="tqB-Hj-GSL" id="Qzl-Kx-b0H"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -273,6 +281,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="HDd-gp-o6I" id="rES-X6-v2C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtO-ZW-kLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

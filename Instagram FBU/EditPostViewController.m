@@ -52,6 +52,12 @@
 - (void) postButtonPressed{
     [Post postUserImage:self.image withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [self dismissViewControllerAnimated: YES completion:nil];
+        if (succeeded){
+            NSLog(@"Post posted successfully");
+        }else{
+            NSLog(@"Post posted failed");
+            NSLog(@"%@", [error localizedDescription]);
+        }
     }];
 }
 

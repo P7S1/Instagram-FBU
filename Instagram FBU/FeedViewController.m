@@ -8,7 +8,11 @@
 #import "FeedViewController.h"
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
+#import "Post.h"
 @interface FeedViewController ()
+
+@property (nonatomic, strong) NSMutableArray<Post*>* posts;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

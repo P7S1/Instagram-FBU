@@ -8,6 +8,7 @@
 //  Post.h
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
+#import "Post.h"
 @interface Post : PFObject<PFSubclassing>
 
 @property (nonatomic, strong) NSString *postID;
@@ -19,6 +20,13 @@
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSNumber *commentCount;
 
+@property (nonatomic, strong) NSDate *creationDate;
+
+
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
+typedef void(^getPostsBlock)(NSArray<Post*>* _Nullable youtubeTrailerId, NSError* _Nullable error);
+
++ (void) getAllPosts: (getPostsBlock _Nullable)completion;
 
 @end
