@@ -164,7 +164,6 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="followButtonPressed:" destination="6XD-Xt-Y9S" eventType="touchUpInside" id="am0-mg-NZr"/>
                                                         <action selector="followButtonPressed:" destination="Aes-GA-F9Q" eventType="touchUpInside" id="bA9-Re-v2g"/>
                                                     </connections>
                                                 </button>

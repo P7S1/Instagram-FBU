@@ -11,6 +11,7 @@
 #import "UserProfile.h"
 #import "MediaManager.h"
 #import <SDWebImage/SDWebImage.h>
+#import "SettingsViewController.h"
 
 @interface ProfileHeaderCollectionReusableView() <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -43,6 +44,15 @@
         [self.profileImageView sd_setImageWithURL:url];
     }];
     
+    if (self.user.objectId == PFUser.currentUser.objectId){
+        self.followButton.backgroundColor = UIColor.secondarySystemBackgroundColor;
+        [self.followButton setTitleColor:UIColor.labelColor forState:UIControlStateNormal];
+        [self.followButton setTitle:@"Settings" forState:UIControlStateNormal];
+    }else{
+        self.followButton.backgroundColor = UIColor.systemBlueColor;
+        [self.followButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+        [self.followButton setTitle:@"Follow" forState:UIControlStateNormal];
+    }
     
 }
 
@@ -54,6 +64,11 @@
 }
 
 - (IBAction)followButtonPressed:(id)sender {
+    if (self.user.objectId == PFUser.currentUser.objectId){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SettingsViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+        [self.parentVC.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

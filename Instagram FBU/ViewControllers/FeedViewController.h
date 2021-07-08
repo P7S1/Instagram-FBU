@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FeedViewController : UIViewController
 
 @property (nonatomic, strong) NSArray<Post*>* posts;
+@property (nonatomic, strong) NSIndexPath* scrollToIndexPath;
 
 @end
 

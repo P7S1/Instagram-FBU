@@ -13,6 +13,7 @@
 #import <SDWebImage/SDWebImage.h>
 #import "ProfileHeaderCollectionReusableView.h"
 #import "PostCollectionViewCell.h"
+#import "FeedViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -73,6 +74,15 @@
     
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    FeedViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"FeedViewController"];
+    vc.posts = self.posts;
+    vc.scrollToIndexPath = indexPath;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if (kind == UICollectionElementKindSectionHeader){
         ProfileHeaderCollectionReusableView* header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ProfileHeaderCollectionReusableView" forIndexPath:indexPath];

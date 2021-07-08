@@ -29,8 +29,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    if (self.posts.count == 0){
-        
+    if (self.posts.count > 0){
+        [self.tableView reloadData];
+        [self.tableView scrollToRowAtIndexPath:self.scrollToIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }else{
         [self configureRefreshControl];
         [self getPosts];
@@ -48,7 +49,7 @@
     [Post getAllPosts:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
         if (error == nil){
             NSLog(@"Getting posts was successful");
-            self.posts = posts;;
+            self.posts = posts;
             [self.tableView reloadData];
             
             if (self.refreshControl.isRefreshing){
