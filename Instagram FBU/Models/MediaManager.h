@@ -9,4 +9,8 @@
 +(CGFloat) getImageAspectRatio: (CGSize) size;
 + (NSString *)timeAgoStringFromDate:(NSDate *)date;
 
+typedef void(^getCurrentUserProfilePictureBlock) (NSURL * _Nullable url, NSError * _Nullable error);
+
++ (void) getCurrentUserProfileURL: (getCurrentUserProfilePictureBlock _Nullable) completion;
+
 @end

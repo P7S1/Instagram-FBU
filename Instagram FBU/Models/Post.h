@@ -8,7 +8,6 @@
 //  Post.h
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
-#import "Post.h"
 @interface Post : PFObject<PFSubclassing>
 
 @property (nonatomic, strong) NSString *postID;
@@ -30,5 +29,5 @@
 typedef void(^getPostsBlock)(NSArray<Post*>* _Nullable posts, NSError* _Nullable error);
 
 + (void) getAllPosts: (getPostsBlock _Nullable)completion;
-
++ (PFFileObject *_Nonnull)getPFFileFromImage: (UIImage * _Nullable)image;
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		078D4877E8482A8197B5CAA9 /* Pods_Instagram_FBU_Instagram_FBUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5976AF9F50B4D6CB9E2A4453 /* Pods_Instagram_FBU_Instagram_FBUUITests.framework */; };
 		082300F3BFF48CEF21F15CFE /* Pods_Instagram_FBU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74FBA4F75E494C9028E56964 /* Pods_Instagram_FBU.framework */; };
+		DF4C16B2269777AA005030D8 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4C16B1269777AA005030D8 /* UserProfile.m */; };
 		DF98F4D72694E7FF0075784F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF98F4D62694E7FF0075784F /* AppDelegate.m */; };
 		DF98F4DA2694E7FF0075784F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF98F4D92694E7FF0075784F /* SceneDelegate.m */; };
 		DF98F4E02694E7FF0075784F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF98F4DE2694E7FF0075784F /* Main.storyboard */; };
@@ -57,6 +58,8 @@
 		76F8D8D9CB59764E83653293 /* Pods-Instagram FBU-Instagram FBUUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram FBU-Instagram FBUUITests.debug.xcconfig"; path = "Target Support Files/Pods-Instagram FBU-Instagram FBUUITests/Pods-Instagram FBU-Instagram FBUUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B69B4C709510D77F56DCC429 /* Pods-Instagram FBU-Instagram FBUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram FBU-Instagram FBUUITests.release.xcconfig"; path = "Target Support Files/Pods-Instagram FBU-Instagram FBUUITests/Pods-Instagram FBU-Instagram FBUUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D554294A32B9BE244D09F574 /* Pods-Instagram FBUTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram FBUTests.debug.xcconfig"; path = "Target Support Files/Pods-Instagram FBUTests/Pods-Instagram FBUTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DF4C16B1269777AA005030D8 /* UserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		DF4C16B3269777BC005030D8 /* UserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
 		DF98F4D22694E7FE0075784F /* Instagram FBU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Instagram FBU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF98F4D52694E7FF0075784F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF98F4D62694E7FF0075784F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 		DF4C16AD26976BD4005030D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DFBD85C12696551E009FC23A /* PostTableViewCell.h */,
+				DFBD85C22696551E009FC23A /* PostTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,8 +183,8 @@
 				DFBD85BB26960F53009FC23A /* MediaManager.m */,
 				DFBD85BE269611EE009FC23A /* Post.h */,
 				DFBD85BF269611FA009FC23A /* Post.m */,
-				DFBD85C12696551E009FC23A /* PostTableViewCell.h */,
-				DFBD85C22696551E009FC23A /* PostTableViewCell.m */,
+				DF4C16B3269777BC005030D8 /* UserProfile.h */,
+				DF4C16B1269777AA005030D8 /* UserProfile.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,6 +511,7 @@
 				DF98F4D72694E7FF0075784F /* AppDelegate.m in Sources */,
 				DFBD85B126960012009FC23A /* SettingsViewController.m in Sources */,
 				DFBD85C32696551E009FC23A /* PostTableViewCell.m in Sources */,
+				DF4C16B2269777AA005030D8 /* UserProfile.m in Sources */,
 				DFBD85B426960035009FC23A /* ProfileViewController.m in Sources */,
 				DFBD85C0269611FA009FC23A /* Post.m in Sources */,
 				DF98F4E82694E8000075784F /* main.m in Sources */,
