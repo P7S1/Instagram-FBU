@@ -21,10 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView* imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@
-                              "instagram"]];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.navigationItem.titleView = imageView;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -32,9 +28,14 @@
     if (self.posts.count > 0){
         [self.tableView reloadData];
         [self.tableView scrollToRowAtIndexPath:self.scrollToIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        self.navigationItem.title = @"Posts";
     }else{
         [self configureRefreshControl];
         [self getPosts];
+        UIImageView* imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@
+                                  "instagram"]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.navigationItem.titleView = imageView;
     }
 }
 
@@ -61,16 +62,6 @@
             NSLog(@"%@", [error localizedDescription]);
         }
         
-    }];
-}
-
-- (IBAction)logoutButtonPressed:(id)sender {
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    [self presentViewController:vc animated:YES completion:nil];
-    
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-    
     }];
 }
 
