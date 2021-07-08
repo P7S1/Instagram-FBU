@@ -73,7 +73,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostTableViewCell"];
-    [cell setUpFromPost:self.posts[indexPath.row]];
+    [cell setUpFromPost:self.posts[indexPath.row] parentViewControlller:self];
     return cell;
 }
 

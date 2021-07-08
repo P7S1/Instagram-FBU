@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import <Parse/Parse.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostTableViewCell : UITableViewCell
@@ -17,8 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *postImageViewHeightAnchor;
-
--(void)setUpFromPost: (Post*)post;
+@property (nonatomic, strong) PFUser* _Nullable user;
+@property (nonatomic, strong) UIViewController* parentVC;
+-(void)setUpFromPost: (Post*)post parentViewControlller: (UIViewController*)parentVC;
 
 @end
 
