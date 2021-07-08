@@ -11,12 +11,13 @@
 #import "UserProfile.h"
 #import "MediaManager.h"
 #import <SDWebImage/SDWebImage.h>
+#import "ProfileHeaderCollectionReusableView.h"
+#import "PostCollectionViewCell.h"
 
-@interface ProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (nonatomic, strong) NSArray<Post*>* posts;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -24,60 +25,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.user == nil){
-        self.user = PFUser.currentUser;
+    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
+    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
+    
+    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width - 32, 190);
+    layout.itemSize = CGSizeMake(self.view.frame.size.width/3, self.view.frame.size.width/3);
+    
+    self.collectionView.collectionViewLayout = layout;
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.posts.count;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    PostCollectionViewCell* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
+    Post* post = self.posts[indexPath.row];
+    
+    NSURL* url = [[NSURL alloc]initWithString:post.image.url];
+    
+    if (url){
+        [cell.postImageView sd_setImageWithURL:url];
+    }else{
+        cell.postImageView.image = nil;
     }
-    [self setUpProfileImageView];
-
-    self.usernameLabel.text = self.user.username;
-    self.followButton.layer.cornerRadius = self.followButton.frame.size.height/2;
     
+    return cell;
+}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    if (kind == UICollectionElementKindSectionHeader){
+        ProfileHeaderCollectionReusableView* header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"ProfileHeaderCollectionReusableView" forIndexPath:indexPath];
+        
+        [header setUpView:self.user withParentViewController:self];
+        
+        return header;
+    }else{
+        return [[UICollectionReusableView alloc]init];
+    }
 }
 
--(void) setUpProfileImageView{
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(profileImageViewPressed)];
-    [self.profileImageView addGestureRecognizer:gestureRecognizer];
-    
-    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.height/2;
-    [self.profileImageView setUserInteractionEnabled:YES];
-    
-    [MediaManager getCurrentUserProfileURL:^(NSURL * _Nullable url, NSError * _Nullable error) {
-        NSLog(@"got current user profileurl");
-        NSLog(@"%@", [error localizedDescription]);
-        [self.profileImageView sd_setImageWithURL:url];
-    }];
-    
-    
-}
-
--(void) profileImageViewPressed{
-    UIImagePickerController* pickerController = [[UIImagePickerController alloc]init];
-    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    pickerController.delegate = self;
-    [self presentViewController:pickerController animated:YES completion:nil];
-}
-
-- (IBAction)followButtonPressed:(id)sender {
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info{
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
-    if (image == nil) { return; }
-    
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    self.profileImageView.image = image;
-    
-    PFFileObject* file = [Post getPFFileFromImage:image];
-    
-    UserProfile* profile = [UserProfile new];
-    
-    profile.profileImage = file;
-    profile.userId = PFUser.currentUser.objectId;
-    
-    [profile saveInBackground];
-}
 
 
 @end

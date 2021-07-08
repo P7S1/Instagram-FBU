@@ -21,6 +21,8 @@
 		DF98F50B2694EC3F0075784F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF98F50A2694EC3F0075784F /* Keys.plist */; };
 		DF98F50E26951D460075784F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF98F50D26951D460075784F /* LoginViewController.m */; };
 		DF98F51126951EF90075784F /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF98F51026951EF90075784F /* TabBarController.m */; };
+		DFA751FA26979A4900DF3017 /* ProfileHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA751F926979A4900DF3017 /* ProfileHeaderCollectionReusableView.m */; };
+		DFA751FD26979DBB00DF3017 /* PostCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA751FC26979DBB00DF3017 /* PostCollectionViewCell.m */; };
 		DFBD85B126960012009FC23A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD85B026960012009FC23A /* SettingsViewController.m */; };
 		DFBD85B426960035009FC23A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD85B326960035009FC23A /* ProfileViewController.m */; };
 		DFBD85B72696016F009FC23A /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBD85B62696016F009FC23A /* FeedViewController.m */; };
@@ -81,6 +83,10 @@
 		DF98F50D26951D460075784F /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DF98F50F26951EF90075784F /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		DF98F51026951EF90075784F /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		DFA751F826979A4900DF3017 /* ProfileHeaderCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		DFA751F926979A4900DF3017 /* ProfileHeaderCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		DFA751FB26979DBB00DF3017 /* PostCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionViewCell.h; sourceTree = "<group>"; };
+		DFA751FC26979DBB00DF3017 /* PostCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionViewCell.m; sourceTree = "<group>"; };
 		DFBD85AF26960012009FC23A /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		DFBD85B026960012009FC23A /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		DFBD85B226960035009FC23A /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -172,6 +178,10 @@
 			children = (
 				DFBD85C12696551E009FC23A /* PostTableViewCell.h */,
 				DFBD85C22696551E009FC23A /* PostTableViewCell.m */,
+				DFA751F826979A4900DF3017 /* ProfileHeaderCollectionReusableView.h */,
+				DFA751F926979A4900DF3017 /* ProfileHeaderCollectionReusableView.m */,
+				DFA751FB26979DBB00DF3017 /* PostCollectionViewCell.h */,
+				DFA751FC26979DBB00DF3017 /* PostCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -505,6 +515,7 @@
 			files = (
 				DFBD85BC26960F53009FC23A /* MediaManager.m in Sources */,
 				DF98F51126951EF90075784F /* TabBarController.m in Sources */,
+				DFA751FD26979DBB00DF3017 /* PostCollectionViewCell.m in Sources */,
 				DF98F50E26951D460075784F /* LoginViewController.m in Sources */,
 				DFBD85B72696016F009FC23A /* FeedViewController.m in Sources */,
 				DFBD85BA269609B0009FC23A /* EditPostViewController.m in Sources */,
@@ -513,6 +524,7 @@
 				DFBD85C32696551E009FC23A /* PostTableViewCell.m in Sources */,
 				DF4C16B2269777AA005030D8 /* UserProfile.m in Sources */,
 				DFBD85B426960035009FC23A /* ProfileViewController.m in Sources */,
+				DFA751FA26979A4900DF3017 /* ProfileHeaderCollectionReusableView.m in Sources */,
 				DFBD85C0269611FA009FC23A /* Post.m in Sources */,
 				DF98F4E82694E8000075784F /* main.m in Sources */,
 				DF98F4DA2694E7FF0075784F /* SceneDelegate.m in Sources */,
