@@ -12,7 +12,6 @@
 #import "PostTableViewCell.h"
 @interface FeedViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray<Post*>* posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl* refreshControl;
 
@@ -30,9 +29,12 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self configureRefreshControl];
-    
-    [self getPosts];
+    if (self.posts.count == 0){
+        
+    }else{
+        [self configureRefreshControl];
+        [self getPosts];
+    }
 }
 
 -(void) configureRefreshControl{

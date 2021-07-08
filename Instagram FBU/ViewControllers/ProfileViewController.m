@@ -26,18 +26,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.user == nil){
+        self.user = PFUser.currentUser;
+    }
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    [self.collectionView setUserInteractionEnabled:YES];
     
-//    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
-//
-//    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 190);
-//    layout.itemSize = CGSizeMake(self.view.frame.size.width/3, self.view.frame.size.width/3);
-//
-//    self.collectionView.collectionViewLayout = layout;
-    
+    [self getPosts];
 }
 
+-(void) getPosts{
+    [Post getAllPostsFromUser:self.user.objectId completionHandler:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (error == nil){
+            NSLog(@"No errors getting profile posts");
+            self.posts = posts;
+            
+            [self.collectionView reloadData];
+        }else{
+            NSLog(@"Getting Profile posts error");
+            NSLog(@"%@", [error localizedDescription]);
+        }
+    }];
+}
+
+
+
+
+//MARK:- UICollectionView Deleagte + DataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.posts.count;
 }
@@ -69,7 +86,8 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(self.view.frame.size.width/3, self.view.frame.size.width/3);
+    CGFloat size = UIScreen.mainScreen.bounds.size.width/3;
+    return CGSizeMake(size, size);;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{

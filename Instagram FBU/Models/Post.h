@@ -29,5 +29,8 @@
 typedef void(^getPostsBlock)(NSArray<Post*>* _Nullable posts, NSError* _Nullable error);
 
 + (void) getAllPosts: (getPostsBlock _Nullable)completion;
++ (void) getAllPostsFromUser: (NSString* _Nonnull)userId completionHandler: (getPostsBlock _Nullable)completion;
+
+
 + (PFFileObject *_Nonnull)getPFFileFromImage: (UIImage * _Nullable)image;
 @end

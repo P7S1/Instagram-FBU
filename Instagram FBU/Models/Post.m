@@ -34,6 +34,7 @@
     newPost.commentCount = @(0);
     newPost.creationDate = [[NSDate alloc]init];
     newPost.aspectRatio = aspectRatio;
+    newPost.userID = PFUser.currentUser.objectId;
     
     [newPost saveInBackgroundWithBlock: completion];
 }
@@ -56,6 +57,17 @@
 
 + (void) getAllPosts: (getPostsBlock _Nullable)completion;{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    query.limit = 20;
+    [query includeKey:@"author"];
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        completion(posts,error);
+    }];
+}
+
++ (void)getAllPostsFromUser:(NSString *)userId completionHandler:(getPostsBlock)completion{
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query whereKey:@"userID" equalTo:userId];
     query.limit = 20;
     [query includeKey:@"author"];
     // fetch data asynchronously
