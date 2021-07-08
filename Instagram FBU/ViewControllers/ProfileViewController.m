@@ -14,7 +14,7 @@
 #import "ProfileHeaderCollectionReusableView.h"
 #import "PostCollectionViewCell.h"
 
-@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray<Post*>* posts;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -29,12 +29,12 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
-    
-    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width - 32, 190);
-    layout.itemSize = CGSizeMake(self.view.frame.size.width/3, self.view.frame.size.width/3);
-    
-    self.collectionView.collectionViewLayout = layout;
+//    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
+//
+//    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 190);
+//    layout.itemSize = CGSizeMake(self.view.frame.size.width/3, self.view.frame.size.width/3);
+//
+//    self.collectionView.collectionViewLayout = layout;
     
 }
 
@@ -68,6 +68,13 @@
     }
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(self.view.frame.size.width/3, self.view.frame.size.width/3);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(self.view.frame.size.width, 190);
+}
 
 
 @end
