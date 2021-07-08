@@ -145,6 +145,67 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF4C16AC26976BCB005030D8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DF98F50F26951EF90075784F /* TabBarController.h */,
+				DF98F51026951EF90075784F /* TabBarController.m */,
+				DF98F50C26951D460075784F /* LoginViewController.h */,
+				DF98F50D26951D460075784F /* LoginViewController.m */,
+				DFBD85AF26960012009FC23A /* SettingsViewController.h */,
+				DFBD85B026960012009FC23A /* SettingsViewController.m */,
+				DFBD85B226960035009FC23A /* ProfileViewController.h */,
+				DFBD85B326960035009FC23A /* ProfileViewController.m */,
+				DFBD85B52696016F009FC23A /* FeedViewController.h */,
+				DFBD85B62696016F009FC23A /* FeedViewController.m */,
+				DFBD85B8269609B0009FC23A /* EditPostViewController.h */,
+				DFBD85B9269609B0009FC23A /* EditPostViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DF4C16AD26976BD4005030D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF4C16AE26976BDD005030D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DFBD85BD26960F7B009FC23A /* MediaManager.h */,
+				DFBD85BB26960F53009FC23A /* MediaManager.m */,
+				DFBD85BE269611EE009FC23A /* Post.h */,
+				DFBD85BF269611FA009FC23A /* Post.m */,
+				DFBD85C12696551E009FC23A /* PostTableViewCell.h */,
+				DFBD85C22696551E009FC23A /* PostTableViewCell.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DF4C16AF26976BE2005030D8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DF98F4E72694E8000075784F /* main.m */,
+				DF98F4D52694E7FF0075784F /* AppDelegate.h */,
+				DF98F4D62694E7FF0075784F /* AppDelegate.m */,
+				DF98F4D82694E7FF0075784F /* SceneDelegate.h */,
+				DF98F4D92694E7FF0075784F /* SceneDelegate.m */,
+				DF98F4E12694E8000075784F /* Assets.xcassets */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DF4C16B026976C16005030D8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DF98F4DE2694E7FF0075784F /* Main.storyboard */,
+				DF98F4E32694E8000075784F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		DF98F4C92694E7FE0075784F = {
 			isa = PBXGroup;
 			children = (
@@ -170,34 +231,13 @@
 		DF98F4D42694E7FF0075784F /* Instagram FBU */ = {
 			isa = PBXGroup;
 			children = (
-				DF98F4D52694E7FF0075784F /* AppDelegate.h */,
-				DF98F4D62694E7FF0075784F /* AppDelegate.m */,
-				DF98F4D82694E7FF0075784F /* SceneDelegate.h */,
-				DF98F4D92694E7FF0075784F /* SceneDelegate.m */,
-				DF98F4DE2694E7FF0075784F /* Main.storyboard */,
-				DF98F4E12694E8000075784F /* Assets.xcassets */,
-				DF98F4E32694E8000075784F /* LaunchScreen.storyboard */,
+				DF4C16B026976C16005030D8 /* Storyboards */,
+				DF4C16AF26976BE2005030D8 /* Core */,
+				DF4C16AE26976BDD005030D8 /* Models */,
+				DF4C16AD26976BD4005030D8 /* View */,
+				DF4C16AC26976BCB005030D8 /* ViewControllers */,
 				DF98F4E62694E8000075784F /* Info.plist */,
-				DF98F4E72694E8000075784F /* main.m */,
 				DF98F50A2694EC3F0075784F /* Keys.plist */,
-				DF98F50C26951D460075784F /* LoginViewController.h */,
-				DF98F50D26951D460075784F /* LoginViewController.m */,
-				DF98F50F26951EF90075784F /* TabBarController.h */,
-				DF98F51026951EF90075784F /* TabBarController.m */,
-				DFBD85AF26960012009FC23A /* SettingsViewController.h */,
-				DFBD85B026960012009FC23A /* SettingsViewController.m */,
-				DFBD85B226960035009FC23A /* ProfileViewController.h */,
-				DFBD85B326960035009FC23A /* ProfileViewController.m */,
-				DFBD85B52696016F009FC23A /* FeedViewController.h */,
-				DFBD85B62696016F009FC23A /* FeedViewController.m */,
-				DFBD85B8269609B0009FC23A /* EditPostViewController.h */,
-				DFBD85B9269609B0009FC23A /* EditPostViewController.m */,
-				DFBD85BD26960F7B009FC23A /* MediaManager.h */,
-				DFBD85BB26960F53009FC23A /* MediaManager.m */,
-				DFBD85BE269611EE009FC23A /* Post.h */,
-				DFBD85BF269611FA009FC23A /* Post.m */,
-				DFBD85C12696551E009FC23A /* PostTableViewCell.h */,
-				DFBD85C22696551E009FC23A /* PostTableViewCell.m */,
 			);
 			path = "Instagram FBU";
 			sourceTree = "<group>";
